@@ -1,5 +1,9 @@
 # 🚨 AI Anomaly Monitoring Agent
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-anomaly-agent-zhnmy6jwxgnjvr5rmwzwqy.streamlit.app)
+
+🌐 **Live Demo**: [ai-anomaly-agent-zhnmy6jwxgnjvr5rmwzwqy.streamlit.app](https://ai-anomaly-agent-zhnmy6jwxgnjvr5rmwzwqy.streamlit.app)
+
 An intelligent, end-to-end business monitoring system that automatically detects unusual metric deviations, groups correlated anomalies into business incidents, generates AI-powered root-cause explanations using **Google Gemini**, sends automated email alerts, and presents insights via an interactive **Streamlit dashboard**.
 
 ---
