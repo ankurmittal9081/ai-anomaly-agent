@@ -12,13 +12,13 @@ load_dotenv()
 
 def send_email_alert(incident, ai_explanation, priority):
 
-    sender = os.getenv("EMAIL_SENDER")
-    password = os.getenv("EMAIL_PASSWORD")
-    receiver = os.getenv("EMAIL_RECEIVER")
+    sender = os.getenv("EMAIL_SENDER") or (st.secrets.get("EMAIL_SENDER") if hasattr(st, "secrets") and "EMAIL_SENDER" in st.secrets else None)
+    password = os.getenv("EMAIL_PASSWORD") or (st.secrets.get("EMAIL_PASSWORD") if hasattr(st, "secrets") and "EMAIL_PASSWORD" in st.secrets else None)
+    receiver = os.getenv("EMAIL_RECEIVER") or (st.secrets.get("EMAIL_RECEIVER") if hasattr(st, "secrets") and "EMAIL_RECEIVER" in st.secrets else None)
 
     if not sender or not password or not receiver:
         raise ValueError(
-            "Email credentials are missing from .env"
+            "Email credentials are missing from environment variables or Streamlit secrets"
         )
 
     date = incident["Date"].date()

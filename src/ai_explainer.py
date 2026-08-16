@@ -14,10 +14,12 @@ from google import genai
 load_dotenv()
 
 api_key = os.getenv("GEMINI_API_KEY")
+if not api_key and hasattr(st, "secrets") and "GEMINI_API_KEY" in st.secrets:
+    api_key = st.secrets["GEMINI_API_KEY"]
 
 if not api_key:
     raise ValueError(
-        "GEMINI_API_KEY is missing from .env file"
+        "GEMINI_API_KEY is missing from environment variables or Streamlit secrets"
     )
 
 
